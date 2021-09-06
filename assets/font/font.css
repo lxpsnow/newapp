@@ -1,0 +1,8 @@
+html{
+    font-size: 62.5% !important;
+}
+@media only screen and (min-width: 751px){
+html {
+     font-size: 150% !important;
+   }
+}

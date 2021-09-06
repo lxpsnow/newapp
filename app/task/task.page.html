@@ -1,0 +1,214 @@
+<ion-content class="bg">
+	<div class="header_bg">
+		<div class="header">
+			<ion-text class="col">任务</ion-text>
+		</div>
+		<div class="per_holder">
+			<div class="per per_pad">
+				<div class="per_tu">
+					<!-- <ion-img src="http://newmeizu.feeyr.com/img/per_img.png"></ion-img> -->
+					<ion-img [src]="avatar"></ion-img>
+				</div>
+				<div class="per_word">
+					<ion-text class="per_w01">{{nick}}</ion-text>
+					<ion-text class="per_w02">ID：meizhu_{{id}}</ion-text>
+				</div>
+			</div>
+			<div class="per_tip">
+				<ion-text><i class="iconfont icon-huiyuan"></i>到期时间：{{vip}}</ion-text>
+				<div class="per_btn">开通</div>
+			</div>
+			<ion-grid class="popularize">
+				<ion-row>
+					<ion-col class="popular" size="4">
+						<ion-text>{{todaygold}}</ion-text>
+						<ion-text>今日金币</ion-text>
+					</ion-col>
+					<ion-col class="popular" size="4">
+						<ion-text>{{gold}}</ion-text>
+						<ion-text>剩余金币</ion-text>
+					</ion-col>
+					<ion-col class="popular" size="4">
+						<ion-text>{{invite}}</ion-text>
+						<ion-text>推广人数</ion-text>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+	</div>
+
+    <ion-grid class="sign_in">
+		<div class="sign_in01">
+			<ion-img src="http://newmeizu.feeyr.com/img/sign_icon01.png"></ion-img>
+			<ion-text>每日签到(7/7)<span class="sign_text">VIP每日+5金币</span></ion-text>
+			<ion-button>点击签到</ion-button>
+		</div>
+		<div class="sign_in02">
+			<div class="sign_item reception_sign">
+				<p class="sign_p">第1天</p>
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+8</ion-text>
+			</div>
+			<div class="sign_item">
+				<p class="sign_p">第2天</p>
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+8</ion-text>
+			</div>
+			<div class="sign_item">
+				<p class="sign_p">第3天</p>
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+8</ion-text>
+			</div>
+			<div class="sign_item">
+				<p class="sign_p">第4天</p>
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+8</ion-text>
+			</div>
+			<div class="sign_item">
+				<p class="sign_p">第5天</p>
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+8</ion-text>
+			</div>
+			<div class="sign_item">
+				<p class="sign_p">第6天</p>
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+8</ion-text>
+			</div>
+			<div class="sign_item">
+				<p class="sign_p">第7天</p>
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text style="color: #ef3f3f; font-weight: bold;">+100</ion-text>
+			</div>
+		</div>
+		<div class="sign_in03">
+			<i class="iconfont icon-qiandao"></i>
+			<ion-text>已连续签到7天</ion-text>
+		</div>
+	</ion-grid>
+	<ion-grid class="task_work">
+		<div class="task_work01"> 
+			<ion-img src="http://aux.meizu69.com/img/sign_icon01.png"></ion-img>
+			<ion-text>单次任务</ion-text>
+		</div>
+		<ion-row class="task_work02">
+			<ion-col class="rel" size="12">
+				<p class="task_work_p">购买vip会员</p>
+				<ion-text>完成任务+50金币</ion-text>
+				<a class="task_work_a">去完成</a>
+			</ion-col>
+			<ion-col class="rel" size="12">
+				<p class="task_work_p">完善个人资料</p>
+				<ion-text>完成任务+10金币，vip+20。完善内容包括：个人头像，昵称。</ion-text>
+				<a class="task_work_a">去完成</a>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+    <ion-grid class="task_work">
+		<div class="task_work01"> 
+			<ion-img src="http://aux.meizu69.com/img/sign_icon01.png"></ion-img>
+			<ion-text>每日任务</ion-text>
+		</div>
+		<ion-row class="task_work02">
+			<ion-col class="rel" size="12">
+				<p class="task_work_p">发布一条圈子作品</p>
+				<ion-text>完成任务+10金币，vip+20金币</ion-text>
+				<a class="task_work_a">去完成</a>
+			</ion-col>
+			<ion-col class="rel" size="12">
+				<p class="task_work_p">圈子作品点 kiss 3条</p>
+				<ion-text>完成任务+10金币，vip+20金币</ion-text>
+				<a class="task_work_a">去完成</a>
+			</ion-col>
+			<ion-col class="rel" size="12">
+				<p class="task_work_p">圈子作品发评论 3条</p>
+				<ion-text>完成任务+10金币，vip+20金币</ion-text>
+				<a class="task_work_a">去完成</a>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<ion-grid class="task_work">
+		<div class="task_work01">
+			<ion-img src="http://aux.meizu69.com/img/sign_icon02.png"></ion-img>
+			<ion-text>每日任务</ion-text>
+		</div>
+		<ion-row class="task_work03">
+			<ion-col class="task_p01" size="4.6">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>推广注册1人</ion-text>
+			</ion-col>
+			<ion-col class="task_p02" size="3.4">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+10金币</ion-text>
+			</ion-col>
+			<ion-col class="task_p03" size="4">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text><span class="task_span">VIP</span>+20金币</ion-text>
+			</ion-col>
+		</ion-row>
+		<ion-row class="task_work03">
+			<ion-col class="task_p01" size="4.6">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>推广注册3人</ion-text>
+			</ion-col>
+			<ion-col class="task_p02" size="3.4">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+50金币</ion-text>
+			</ion-col>
+			<ion-col class="task_p03" size="4">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text><span class="task_span">VIP</span>+80金币</ion-text>
+			</ion-col>
+		</ion-row>
+		<ion-row class="task_work03">
+			<ion-col class="task_p01" size="4.6">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>推广注册5人</ion-text>
+			</ion-col>
+			<ion-col class="task_p02" size="3.4">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+100金币</ion-text>
+			</ion-col>
+			<ion-col class="task_p03" size="4">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text><span class="task_span">VIP</span>+150金币</ion-text>
+			</ion-col>
+		</ion-row>
+		<ion-row class="task_work03">
+			<ion-col class="task_p01" size="4.6">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>推广注册10人</ion-text>
+			</ion-col>
+			<ion-col class="task_p02" size="3.4">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text>+300金币</ion-text>
+			</ion-col>
+			<ion-col class="task_p03" size="4">
+				<ion-img src="http://aux.meizu69.com/img/coin_icon.png"></ion-img>
+				<ion-text><span class="task_span">VIP</span>+400金币</ion-text>
+			</ion-col>
+		</ion-row>
+		<ion-row class="erect">
+			<ion-col size="7" offset="2.5">
+				<ion-img src="http://aux.meizu69.com/img/code.jpg"></ion-img>
+				<ion-text>扫码下载魅足APP</ion-text>
+			</ion-col>
+		</ion-row>
+		<ion-row class="conserve">
+			<ion-text class="conserve01">保存二维码</ion-text>
+			<ion-text class="conserve02">复制推广链接</ion-text>
+		</ion-row>
+	</ion-grid>
+	<ion-grid class="share">
+		<ion-header>分享到</ion-header>
+		<ion-row>
+			<ion-col size="6">
+				<ion-img src="http://aux.meizu69.com/img/weixin.png"></ion-img>
+				<ion-text>微信</ion-text>
+			</ion-col>
+			<ion-col size="6">
+				<ion-img src="http://aux.meizu69.com/img/qq.png"></ion-img>
+				<ion-text>QQ</ion-text>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

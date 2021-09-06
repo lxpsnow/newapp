@@ -1,0 +1,53 @@
+.tabbar {
+  .ion-tab-base {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  contain: none;
+  .tab-button{
+    position: relative;
+    .icon-home,.icon-video,.icon-task,.icon-my{
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    .icon-circle{
+      width: 5.2rem;
+      height: 5.2rem;
+      position: absolute;
+      top: -2.2rem;
+      z-index: 999;
+    }
+  }
+  box-shadow: 0 -0.2rem 0.2rem #eee;
+  ion-tab-button.tab-button.tab-selected {
+    ion-label {
+        color: #6b2cff;
+    }
+  }
+  ion-tab-button::part(native){
+    overflow: visible;
+  }
+  .tab-btn{
+    ion-label{
+      margin-top: 3rem;
+    }
+	ion-icon{
+	  border-radius: 50%;
+      box-shadow: 0 -0.2rem 0.05rem #e1e1e1;
+	}
+  }
+
+  $tabImageName: "home" "video" "circle" "task" "my";
+  @for $i from 1 to 6 {
+	//for all platform
+    .tab-button .icon-#{nth($tabImageName, $i)} {
+      @extend .ion-tab-base;
+      background-image: url("../../assets/img/tabbar/#{nth($tabImageName, $i)}.png");
+    }
+    .tab-button.tab-selected .icon-#{nth($tabImageName, $i)} {
+      @extend .ion-tab-base;
+      background-image: url("../../assets/img/tabbar/#{nth($tabImageName, $i)}_active.png");
+    }
+  }
+}

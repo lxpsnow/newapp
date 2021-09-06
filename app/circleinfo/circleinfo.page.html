@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>circleinfo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header>
+    <ion-row>
+      <ion-col size=3>
+        <ion-avatar>
+          <ion-img [src]="avatar"></ion-img>
+        </ion-avatar>
+      </ion-col>
+      <ion-col size=3>
+        <ion-label>{{nick}}</ion-label>
+      </ion-col>
+      <ion-col size=3>
+        <ion-label>
+          <ion-button *ngIf="isfollow==1">取消关注</ion-button>
+          <ion-button *ngIf="isfollow==0">关注</ion-button>
+        </ion-label>
+      </ion-col>
+      <ion-row>
+        <ion-col>
+          {{description}}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="style==1">
+        <ion-col size=3 *ngFor="let i of url">
+          <ion-img [src]="i"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size=12>{{date}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size=2 *ngFor="let a of avatars">
+          <ion-avatar>
+            <ion-img [src]="a.avatar"></ion-img>
+          </ion-avatar>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+    
+    
+  </ion-header>
+</ion-content>

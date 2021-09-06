@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>第{{index}}张</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides (ionSlideDidChange)="onSlideDidChange($event)">
+    <ion-slide  *ngFor="let item of items;let i = index;">
+      <ion-img [src]="item" (touchstart)="start(item)" (touchend)="end()">
+      </ion-img>
+      <!--ion-img-viewer
+      title="第{{i+1}}张" 
+      text="魅足APP" 
+      scheme="dark" 
+      src="{{item}}">
+    </ion-img-viewer-->
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>一键注册登录</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="mobile" placeholder="输入手机号码"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="code" placeholder="验证码"></ion-input><ion-button [disabled]="status" (click)="send(mobile)">{{codestr}}</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button size="large" style="width:100%" (click)="login(mobile,code)">免注册登录</ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

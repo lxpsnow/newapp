@@ -1,0 +1,10 @@
+ion-list{
+    ion-item{float: left;padding:3px;margin: 0 auto;}
+    ion-thumbnail{
+        width:140px;height:140px;
+        ion-img{
+            width: 140px;
+            height:140px;
+        }
+    }
+}

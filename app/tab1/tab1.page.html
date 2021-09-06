@@ -1,0 +1,177 @@
+<ion-header [translucent]="false">
+	<ion-grid>
+		<ion-row class="searcher">
+			<ion-col size="10"><a class="search">
+					<input class="search_int" placeholder="按用户名、按人气、按排名" type="text" />
+					<i class="iconfont icon-tubiao-"></i>
+				</a></ion-col>
+			<ion-col size="2" class="infor_pic">
+				<ion-img src="http://newmeizu.feeyr.com/img/tz.png"></ion-img>
+				<ion-text>3</ion-text>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<ion-grid>
+		<ion-row class="header_tab">
+			<ion-col (click)="getinfos(0)">
+				<ion-text [ngClass]="{'tab_active':activeIndex==0}">推荐</ion-text>
+			</ion-col>
+			<ion-col (click)="getinfos(1)">
+				<ion-text [ngClass]="{'tab_active':activeIndex==1}">分类</ion-text>
+			</ion-col>
+			<ion-col (click)="getinfos(2)">
+				<ion-text [ngClass]="{'tab_active':activeIndex==2}">专题</ion-text>
+			</ion-col>
+			<ion-col (click)="getinfos(3)">
+				<ion-text [ngClass]="{'tab_active':activeIndex==3}">最新</ion-text>
+			</ion-col>
+			<ion-col (click)="getinfos(4)">
+				<ion-text [ngClass]="{'tab_active':activeIndex==4}">最热</ion-text>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-header>
+
+<ion-content scroll-y="false">
+	<ion-slides #slide01 (ionSlideDidChange)="slideDidChange($event)">
+		<ion-slide>
+			<div class="holder">
+				<div style="width: 100%;">
+					<ion-slides pager="true" class="banner">
+						<ion-slide *ngFor="let ad of headimg">
+							<div class="banner_tu">
+								<ion-img [src]="ad.img"></ion-img>
+							</div>
+						</ion-slide>
+					</ion-slides>
+				</div>
+				<ion-row>
+					<ion-col size="3" class="pilot_icon" (click)="goto('gold')">
+						<ion-img src="http://newmeizu.feeyr.com/img/icon01.png"></ion-img>
+						<ion-label>金币</ion-label>
+					</ion-col>
+					<ion-col size="3" class="pilot_icon" (click)="goto('vip')">
+						<ion-img src="http://newmeizu.feeyr.com/img/icon02.png"></ion-img>
+						<ion-label>VIP</ion-label>
+					</ion-col>
+					<ion-col size="3" class="pilot_icon" (click)="goto('money')">
+						<ion-img src="http://newmeizu.feeyr.com/img/icon03.png"></ion-img>
+						<ion-label>赚钱</ion-label>
+					</ion-col>
+					<ion-col size="3" class="pilot_icon" (click)="goto('like')">
+						<ion-img src="http://newmeizu.feeyr.com/img/icon04.png"></ion-img>
+						<ion-label>收藏</ion-label>
+					</ion-col>
+				</ion-row>
+				<ion-grid *ngFor="let item of items">
+					<ion-row>
+						<ion-col class="intro_title">
+							<ion-label></ion-label>
+							<ion-text>{{item.category.catname}}</ion-text>
+						</ion-col>
+						<ion-col class="intro_more">
+							<ion-text (click)="catpic(item.category.id)">查看更多></ion-text>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col size="4" *ngFor="let i of item.data">
+							<div class="intro_pic">
+								<ion-img [src]="i.cover" (click)="gotopic(i.id)"></ion-img>
+								<ion-text>20p</ion-text>
+							</div>
+							<ion-text class="intro_p">{{i.title}}</ion-text>
+						</ion-col>
+						<div class="advert">
+							<ion-img [src]="item.category.adimg"></ion-img>
+						</div>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</ion-slide>
+
+		<ion-slide>
+			<div class="holder">
+				<ion-grid>
+					<ion-row class="stripe">
+						<ion-text (click)="set()">全部</ion-text>
+						<ion-text *ngFor="let item of cats" (click)="get(item.id)">{{item.catname}}</ion-text>
+					</ion-row>
+					<div class="priority" *ngIf="style">
+						<ion-text *ngFor="let item of child" (click)="getlist(item.id)">{{item.catname}}</ion-text>
+					</div>
+					<ion-row>
+						<ion-col size="6" *ngFor="let item of list">
+							<div class="pho_pic">
+								<ion-img [src]="item.cover" (click)="gotopic(item.id)"></ion-img>
+								<ion-text>20p</ion-text>
+							</div>
+							<ion-text class="intro_p">{{item.title}}</ion-text>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</ion-slide>
+
+		<ion-slide>
+			<div class="holder">
+				<div style="width: 100%;">
+					<ion-slides pager="true" class="banner">
+						<ion-slide *ngFor="let ad of headimg">
+							<div class="banner_tu">
+								<ion-img [src]="ad.img"></ion-img>
+							</div>
+						</ion-slide>
+					</ion-slides>
+				</div>
+				<ion-grid *ngFor="let item of zlist">
+					<ion-row>
+						<ion-col size="12" class="intro_title intro_gap">
+							<ion-label></ion-label>
+							<ion-text>{{item.catname}}</ion-text>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col size="12">
+							<div class="topic_pic">
+								<ion-img [src]="item.catimg" (click)="gotopic(item.id)"></ion-img>
+								<ion-text>20p</ion-text>
+							</div>
+					    </ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</ion-slide>
+
+		<ion-slide>
+			<div class="holder">
+				<ion-grid>
+					<ion-row>
+						<ion-col size="6" *ngFor="let item of news">
+							<div class="pho_pic">
+								<ion-img [src]="item.cover" (click)="gotopic(item.id)"></ion-img>
+								<ion-text>20p</ion-text>
+							</div>
+							<ion-text class="intro_p">{{item.title}}</ion-text>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</ion-slide>
+
+		<ion-slide>
+			<div class="holder">
+				<ion-grid>
+					<ion-row>
+						<ion-col size="6" *ngFor="let item of hots">
+							<div class="pho_pic">
+								<ion-img [src]="item.cover" (click)="gotopic(item.id)"></ion-img>
+								<ion-text>20p</ion-text>
+							</div>
+							<ion-text class="intro_p">{{item.title}}</ion-text>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</ion-slide>
+	</ion-slides>
+</ion-content>

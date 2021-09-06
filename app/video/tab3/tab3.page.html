@@ -1,0 +1,112 @@
+<ion-header [translucent]="true" class="rel">
+  <ion-row class="interest">
+    <ion-col class="interest_pic" size="2.5">
+      <ion-img src="http://newmeizu.feeyr.com/img/tz.png"></ion-img>
+    </ion-col>
+    <ion-col size="2" class="interestBtn">
+      <ion-text>发现</ion-text>
+    </ion-col>
+    <ion-col size="3">
+      <ion-text>关注</ion-text>
+    </ion-col>
+    <ion-col size="2">
+      <ion-text>我的</ion-text>
+    </ion-col>
+    <ion-col class="interest_pic" size="2.5">
+      <ion-img src="http://newmeizu.feeyr.com/img/pub_icon.png" (click)="presentActionSheet()">发布</ion-img>
+    </ion-col>
+  </ion-row>
+</ion-header>
+<!--<div class="interest_ul">
+	<ion-row>
+		<ion-col size="12">免费</ion-col>
+		<ion-col size="12">付费</ion-col>
+		<ion-col size="12">按时间</ion-col>
+		<ion-col size="12">按Kiss</ion-col>
+		<ion-col size="12">按评论</ion-col>
+	</ion-row>
+</div>-->
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+    	pullingIcon="arrow-dropdown" 
+    	pullingText="下拉刷新页面" 
+    	refreshingSpinner="circles"
+      	refreshingText="加载中...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="trend" *ngFor="let item of list">
+      <ion-grid>
+		<ion-row class="trend01">
+			<ion-col size="2">
+			  <ion-avatar>
+				<ion-img [src]="item.avatar"></ion-img>
+			  </ion-avatar>
+			</ion-col>
+			<ion-col size="7" class="writer_word">
+			  <ion-label>{{item.nick}}</ion-label>
+			  <!-- <ion-text>置顶</ion-text> -->
+			</ion-col>
+			<ion-col size="3" class="attBtn">
+			  <ion-button *ngIf="item.isfollow==1" (click)="ck(item.uid,item.isfollow,$event)">取消</ion-button>
+			  <ion-button *ngIf="!item.isfollow" (click)="ck(item.uid,item.isfollow,$event)">+关注</ion-button>
+			</ion-col>
+		</ion-row>
+        <ion-row>
+			<ion-col size="10" offset="2" class="trend_w">
+				<ion-row class="trend02">
+					<ion-col size="12">
+						<ion-text>
+						   {{item.description}}
+						</ion-text>
+					</ion-col>
+				</ion-row>
+				<ion-row class="trend03 trend03_pic" *ngIf="item.free>=0">
+					<ion-col size="4" *ngFor="let i of item.url.slice(0,9);let s = index">
+					  <div class="trend03_tu">
+						  <ion-img [src]="i" (click)="gopic(item.id,s)"></ion-img>
+						  <ion-text *ngIf="s==8">20</ion-text>
+					  </div>
+					</ion-col>
+				</ion-row>
+				<ion-row class="trend03 trend03_vid"  *ngIf="!item.free&&item.free!=0">
+					<ion-col size="7">
+					  <div class="rel">
+						<ion-img class="vid_tu01" [src]="item.cover" (click)="govideo(item.id)"></ion-img>  
+						<ion-img class="vid_tu02" src="http://newmeizu.feeyr.com/img/play.png"></ion-img>
+					  </div>
+					</ion-col>
+				</ion-row>
+				<ion-row class="trend04">
+					<ion-col size="6" class="date_word">{{item.date}}</ion-col>
+					<ion-col size="6" class="dot_icon"><ion-img src="http://newmeizu.feeyr.com/img/dot_img.png"></ion-img></ion-col>
+					<ion-row class="deliver">
+						<ion-col size="4">
+							<i class="iconfont icon-zuichun"></i>
+						</ion-col>
+						<ion-col size="8">
+							<i class="iconfont icon-xiaoxi"></i>
+							<ion-text>评论</ion-text>
+						</ion-col>
+					</ion-row>
+				</ion-row>
+			    <ion-row class="trend05">
+					<ion-col size="12" class="lip_pic">{{item.favorites}}&nbsp;Kiss
+					  <ion-img src="http://newmeizu.feeyr.com/img/lip01.png"></ion-img>
+					</ion-col>
+				</ion-row>
+				<ion-row class="trend06">
+					<ion-col size="12" (click)="pl(item.id,1)" *ngIf="item.free>=0">查看全部评论</ion-col>
+					<ion-col size="12" *ngIf="!item.free&&item.free!=0" (click)="pl(item.id,2)">查看全部评论</ion-col>
+				</ion-row>
+			</ion-col>
+        </ion-row>
+	  </ion-grid>
+    </div>
+	
+  <ion-infinite-scroll threshold="10%" position="bottom" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载数据...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

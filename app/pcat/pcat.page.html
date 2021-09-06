@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-searchbar animated></ion-searchbar>
+  <ion-row style="text-align: center;margin-top: 0.5rem;margin-bottom: 0.5rem;">
+    <ion-col width-3>
+      <ion-text (click)="openpage('tabs/tab1')">推荐</ion-text>    
+    </ion-col>
+    <ion-col  width-3>
+      <ion-text (click)="openpage('pcat')">分类</ion-text>    
+    </ion-col>
+    <ion-col  width-3>
+      <ion-text (click)="openpage('pzt')">专题</ion-text>    
+    </ion-col>
+    <ion-col  width-3>
+      <ion-text (click)="openpage('pnew')">最新</ion-text>    
+    </ion-col>
+    <ion-col  width-3>
+      <ion-text (click)="openpage('phot')">最热</ion-text>    
+    </ion-col>
+</ion-row>
+</ion-header>
+
+
+<ion-content>
+<ion-row>
+  <ion-col>
+    <ion-text (click)="set()">全部</ion-text>
+  </ion-col>
+  <ion-col *ngFor="let item of cats">
+    <ion-text (click)="get(item.id)">{{item.catname}}</ion-text>
+  </ion-col>
+</ion-row>
+<ion-row *ngIf="style">
+  <ion-col *ngFor="let item of child">
+    <ion-text (click)="getlist(item.id)">{{item.catname}}</ion-text>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size=4 *ngFor="let item of list">
+    <ion-img [src]="item.cover"></ion-img>
+    <ion-text>{{item.title}}</ion-text>
+  </ion-col>
+</ion-row>
+</ion-content>
